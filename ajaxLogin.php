@@ -1,6 +1,7 @@
 <?php
 include("myInfo.php");
 session_start();
+ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 if(true)//isSet($_POST['username']) && isSet($_POST['password']))
 {
@@ -43,9 +44,30 @@ while ($stmt->fetch()) {
 }
 //echo $user;	
 }
-
+if(isset($_SESSION['create']) || $_SESSION['create'] == 1){
+	
+	//insert
+		
+			$user = $_POST['username'];
+			$psswrd = $_POST['password'];
+			
+			if (!($stmt = $mysqli->prepare("INSERT INTO userInfo(ID, userName, password) VALUES (NULL, '$user', '$psswrd')"))) {
+               echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+                                                                                 }
+					   
+            if (!$stmt->execute()) {
+    echo "Error, this username had already been used, please try again. Click <a href='createAccount.php'> Here to return</a>";
+}else{		   
+    $_SESSION['userName'] = $user;
+	$_SESSION['login-user'] = $id;
+	$_SESSION['password'] = $psswrd; 
+	$_SESSION['logged-in'] = 1;
+		header("Location: home.php");
+}
+}
 else {
 	echo'error';
 	
 }
+
 ?>

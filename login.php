@@ -78,9 +78,15 @@ if(!isset($_SESSION['logged-in']) && $_SESSION['logged-in'] != 1){
 </div>
 
 </div>
+<div>
+<a href='createAccount.php'>To create an Account, click Here </a>
+</div>
 </body>
 </html>";
 }
 else{
+	if($_SESSION['logged-in'] == 0){
+		header("Location: createAccount.php");
+	}else
 	header("Location: home.php");
 }

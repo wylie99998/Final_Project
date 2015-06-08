@@ -1,8 +1,8 @@
-<?php_egg_logo_guid
+<?php
 session_start();
-if(empty($_SESSION['login']))
+if(!isset($_SESSION['logged-in']))
 {
-	;//header('Location: login.php');
+	header("Location: login.php");
 }
 echo 'home!';
 ?>
