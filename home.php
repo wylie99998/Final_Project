@@ -73,7 +73,7 @@ echo '<!DOCTYPE html>
 </head>
 <body>
 <section><table>
-   <tr> <td> ID </td> <td> Name </td>  <td> Category </td> <td> Length </td>  <td> Rented </td> <td> delete movie </td> <td> rent </td> </tr>';
+   <tr> <td> ID </td> <td> Class Name </td>  <td> Rating </td> <td> Review </td>  <td> Grade </td> <td> date </td> <td> online </td> <td> Posted userName </td></tr>';
   
          for($i=1; $i<=count($results); $i++) 
 		 {
@@ -85,6 +85,14 @@ echo '<!DOCTYPE html>
 		    echo $results[$i]->s_rate;
 	       echo "</td> <td>";
 		    echo $results[$i]->s_review;
+	       echo "</td> <td>";
+		   echo $results[$i]->s_grade;
+	       echo "</td> <td>";
+		   echo $results[$i]->s_date;
+	       echo "</td> <td>";
+		   echo $results[$i]->s_online;
+	       echo "</td> <td>";
+		   echo $results[$i]->s_username;
 	       echo "</td> <td>";
 }}
 ?>

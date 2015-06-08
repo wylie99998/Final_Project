@@ -85,3 +85,8 @@ border-color: #3ac162 !important;
 	padding:10px;
 }
 #error{font-size:12px; margin-top:10px}
+
+table{
+border: solid thick; border-color: black;
+}
+td {border: solid thin; height 1.5em; width 1.5em;}
