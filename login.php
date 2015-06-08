@@ -33,9 +33,9 @@ header('Location: home.php');
             cache: false,
             beforeSend: function(){ $("#login").val('searching database..');},
             success: function(data){
-            if(data)
+            if(true)
             {
-            $("body").load("home.php").hide().fadeIn(2000).delay(4000);
+            $("body").load("home.php");//.hide().fadeIn(2000).delay(4000);
             }
             else
             {

@@ -4,7 +4,7 @@ session_start();
 error_reporting(E_ALL);
 if(true)//isSet($_POST['username']) && isSet($_POST['password']))
 {
-	$_POST['username'] = 'bob';
+//$_POST['username'] = 'bob';
 // username and password sent from login.php
 $username=$_POST['username'];//mysqli_real_escape_string($db,$_POST['username']); 
 //$password=md5(mysqli_real_escape_string($db,$_POST['password'])); 
@@ -22,7 +22,7 @@ if($mysqli->connect_errno){
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 } 		
 	}
-	$psswrd;
+$psswrd;
 $ID;
 $user;
 if (!$stmt->bind_result($id, $user, $psswrd)) {
@@ -32,9 +32,11 @@ if (!$stmt->bind_result($id, $user, $psswrd)) {
 
 while ($stmt->fetch()) {
    // $results[i]= sprintf("id = %s , name = %s \n, category = %s \n, length = %s \n, rented = %s \n ", $out_id, $out_name, $out_cat, $out_length, $out_rented);
-	
-	
-}	
+	$_SESSION['userName'] = $user;
+	$_SESSION['login-user'] = $id;
+	$_SESSION['password'] = $psswrd; 
+}
+//echo $user;	
 }
 else {
 	echo'error';
