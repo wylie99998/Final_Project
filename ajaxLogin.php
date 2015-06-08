@@ -7,7 +7,7 @@ if(true)//isSet($_POST['username']) && isSet($_POST['password']))
 //$_POST['username'] = 'bob';
 // username and password sent from login.php
 $username=$_POST['username'];//mysqli_real_escape_string($db,$_POST['username']); 
-//$password=md5(mysqli_real_escape_string($db,$_POST['password'])); 
+$password=$_POST['password']; 
 $mysqli = new mysqli("oniddb.cws.oregonstate.edu", "guerraj-db", $pswd, "guerraj-db");
 if($mysqli->connect_errno){
 	echo "ERROR";
@@ -32,12 +32,18 @@ if (!$stmt->bind_result($id, $user, $psswrd)) {
 
 while ($stmt->fetch()) {
    // $results[i]= sprintf("id = %s , name = %s \n, category = %s \n, length = %s \n, rented = %s \n ", $out_id, $out_name, $out_cat, $out_length, $out_rented);
+	if($password == $psswrd){
 	$_SESSION['userName'] = $user;
 	$_SESSION['login-user'] = $id;
 	$_SESSION['password'] = $psswrd; 
+	$_SESSION['logged-in'] = 1;
+	}
+	else 
+	$_SESSION['logged-in'] = 0;
 }
 //echo $user;	
 }
+
 else {
 	echo'error';
 	

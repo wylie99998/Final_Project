@@ -2,6 +2,7 @@
 session_start();
 if(empty($_SESSION['login']))
 {
-	header('Location: login.php');
+	;//header('Location: login.php');
 }
+echo 'home!';
 ?>
