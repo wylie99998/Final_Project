@@ -60,7 +60,7 @@ while ($stmt->fetch()) {
 	$results[$i]->s_online = $out_online;
 	$results[$i]->s_username = $out_username;
    // $results[$i]->oprint();
-	$i= $i +1;;
+	$i= $i +1;
 	
 }
 	}
@@ -74,9 +74,9 @@ echo '<!DOCTYPE html>
 <body>
 <section><table>
    <tr> <td> ID </td> <td> Name </td>  <td> Category </td> <td> Length </td>  <td> Rented </td> <td> delete movie </td> <td> rent </td> </tr>';
-   if(isset($_POST['dropdownmenu'])){
-	   if($_POST['dropdownmenu'] == 'all'){
-         for($i=1; $i<=count($results); $i++){
+  
+         for($i=1; $i<=count($results); $i++) 
+		 {
 	       echo '<tr> <td>';
            echo $results[$i]->s_id;
 	       echo "</td> <td>";
@@ -85,6 +85,6 @@ echo '<!DOCTYPE html>
 		    echo $results[$i]->s_rate;
 	       echo "</td> <td>";
 		    echo $results[$i]->s_review;
-	       echo "</td> <td>';
-	}
+	       echo "</td> <td>";
+}}
 ?>
