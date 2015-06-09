@@ -72,8 +72,16 @@ echo '<!DOCTYPE html>
 <title> homepage </title>
 </head>
 <body>
+<section>
+<p><strong>Welcome to the OSU class rating board! </strong></p>
+<p>This site is dedicated to sharing information about classes between students.  
+You can input a variety of information about the classes you have taken, which is shared
+across users of this site.  </p>
+</section>
+
+
 <section><table>
-   <tr> <td> ID </td> <td> Class Name </td>  <td> Rating </td> <td> Review </td>  <td> Grade </td> <td> date </td> <td> online </td> <td> Posted userName </td></tr>';
+   <tr> <td> ID </td> <td> Class Name </td>  <td> Rating </td> <td> Review </td>  <td> Grade </td> <td> Date </td> <td> Online </td> <td> Posted userName </td></tr>';
   
          for($i=1; $i<=count($results); $i++) 
 		 {
@@ -90,9 +98,38 @@ echo '<!DOCTYPE html>
 	       echo "</td> <td>";
 		   echo $results[$i]->s_date;
 	       echo "</td> <td>";
-		   echo $results[$i]->s_online;
+		   if($results[$i]->s_online == 't')
+		   echo 'Yes';
+	       else 
+			   echo 'No';
 	       echo "</td> <td>";
 		   echo $results[$i]->s_username;
 	       echo "</td> <td>";
-}}
+}
+echo '</table>
+</section><div>
+<br>
+<br>
+<div>
+Insert New Class information here! It will automatically log your username for other users. 
+<form id="bubble" action=ajaxLogin.php  method="post">
+Class Name:   <input type="text" name="class" required>
+<br>
+Class Rating (1-10): <input type="number" name="rating" required>
+<br>
+Review:   <input type="text" name="review" required>
+<br>
+Grade:   <input type="text" name="grade" required>
+<br>
+Date:   <input type="date" name="date" required>
+<br>
+Online Class:   Yes <input type="checkbox" value="true" name="online" >  No <input type="checkbox" value="false" name="online" >
+<br>
+<input type="submit" value= "Submit">
+
+<br>
+
+</form>';
+
+}
 ?>
